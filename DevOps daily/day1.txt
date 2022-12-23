@@ -1,0 +1,112 @@
+Basics
+
+basic commands like echo,ls,cd
+mkdir -p allows to create directories inside directories if the directories are not present
+mv one_file second_file (if in the same directory it just means renaming) 
+rm
+cp -r
+
+
+- some commands like su, sudo etc
+- how sudo allows you to have root priviledges without being root user (use sudo prefix)
+
+-> downloading files using curl command 
+   - using -0 tag to save the file in the cd otherwise it will just print the file
+   - we can also use the wget command to download a file
+   
+Syntax for both: 
+
+   - curl ..link.. -o
+   - wget ..link.. -o file_name.txt
+
+How to check id of an user?
+- Short answer : Using the command id -u <name>
+- Long answer : That info is stored in /etc/passwd
+
+SSH login
+
+
+PACKAGE MANAGER:
+
+- They help you install various softwares in our linux system.
+- CentOS uses an RPM based packet manager.
+- The packages come in the format of .rpm
+- And to install them we use the command :      rpm -i package_Name.rpm
+- rpm -e uninstalls a package
+- rpm -q gives us info about the installed package (THIS CAN BE USED TO CHECK IF THE RPM IS INSTALLED IN THE SYSTEM OR NOT))
+
+-> But major dismerit of rpm package management is that they do not install additional dependencies 
+   that may be required by our installed package, so in package managers like YUM comes in play
+-> yum install ansible (installs all the dependencies along with the main software)
+-> yum remove ansible (removes the file)
+-> yum install ansible-2.9.1 (installs this particular version)
+
+
+
+(NOTE: Don't forget to use sudo command if you are not the root user)
+
+
+
+
+SERVICES:
+
+- A service is a program that runs in the background outside the interactive control
+of system users as they lack an interface. 
+- So any software that runs as a service in background is installed like docker,httpd,etc
+  they are automatically configured as a service in the system.
+- And now to start this service we use the command
+       service httpd start  (just taking httpd as an example here)
+ - The newer version of starting the service is by using
+       systemctl start httpd
+
+- BOTH DOES THE SAME THING SO LETS STICK TO THE systemctl
+
+- NOW to stop a service 
+	 systemctl stop httpd
+
+- To check the status of a service
+       systemctl status httpd
+
+- To make the service to start automatically when the system boots up we use
+       systemctl enable httpd
+
+- And to disable just disable *duh*
+
+
+-> We just saw that systemctl command is used to manage systemd services, so let say we have a program
+   that is to be used as service, we can do so my configuring our program as a systemd service.
+
+   - A systemd service is configured using a systemd unit file.
+   - These file may be located at etc/systemd/system path.
+   - So we have to create the unit file in that path and name it what the service is to be named(with the extension .service)
+   - Inside the file define a section called service using the square brackets provide a directive named ExecStart under it.
+     It should look like this:
+ 
+                    [Service]
+			  ExecStart = <command we will use to run the application>
+
+   - use the command daemon-reload, it lets the systemd know there is a new service configured. 	
+   - Then do whatever you want to do with the service - start, enable,etc but wait enable will not work unless
+     we further modify the unit file, another section with directive is needed.
+
+                    [Service]
+			  ExecStart = <command we will use to run the application>    
+ 
+                    [Install]
+		        WantedBy = multi-user.target
+
+  - We can also add further metadata to give others for info about what this application does in the unit section.
+
+                    [Unit]
+                    Description=safjbasd
+  
+  - If our program has commands or scripts that are to run before or after starting the application we add:
+    Also if we want the application to restart if in case of crash or something
+
+                    [Service]
+                    ExecStart = <command we will use to run the application>
+                    ExecStartPre = ....
+                    ExecStartPost = .....
+                    Restart = always                 
+   
+  
