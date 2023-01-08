@@ -1,0 +1,40 @@
+Tag#3
+
+- We can change the VM name in vagrant (further info in vagrant documentation)
+
+NETWORKING PRE-REQ:
+
+-> Switching:
+   - Two systems are connected to each other using a switch, and the switch creates a network containing
+     the two systems.
+   - To connect them to a switch we need an "interface" on each hosts physical or virtual depending on the host.
+   - To see the interfaces for the host we use the ip link command.
+   - These two form a network with the help of this switch.
+   - To add an ip address to that system using the ip addr command 
+ 
+                     ip addr add <ip_address> dev <interface>
+
+-> Routing :
+   - Now if we need to connect two networks with each other a router comes into play.
+   - A router is just another device in a network, what it means is that how can our packets of information know 
+     where even is the router present in this network for inter-network data transfer.
+   - That's where we configure a system using a gateway, it is like a door rather than a room(other systems), 
+     which acts as a gate to other networks.
+   - To see the existing routing configuration on a system, use the route command, it displays the kernel's 
+     routing table.
+   - we need to add the info using the ip route add command (see image for more detail)
+   - ip default gateway : Any network outside of your existing network goes to that particular router.
+                          0.0.0.0
+
+- Packets are not forwarded from one interface to the next in linux unless explicitly defined.
+- It can be done in a directory by changing the value from 0 to 1.
+
+
+SUMMARY: 
+
+1. ip link : To list and modifiy interfaces on the host.
+2. ip addr : To see the ip addresses assigned to that host.
+3. ip addr add : Used to set IP addresses on the interfaces.
+4. ip route add <ip1_address> via <ip2_address>
+
+
