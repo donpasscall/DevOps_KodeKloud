@@ -1,0 +1,46 @@
+Lecture 2 :
+
+
+Virtualisation -
+
+- Type-1 : Installed directly on top of the physical server. E.g : Microsoft Hyper-v
+- Type-2 : Layer of host OS that sits between the physical server and the HVs.
+
+
+NETWORKING IN VIRTUAL BOX: 
+
+- Each VM has 4 adapters.
+
+1. Private Host-only network : 
+
+-> Private network within our PC and the VMs are connected to this network and 
+   get addr of the same series, and even our PC gets a new addr(same series).
+-> The connectivity is contained within the host which doesn't allow info exchange between different hosts/pc.
+-> Internet connectivity is possible with enabling IP forwarding.
+
+
+2. NAT network: 
+
+-> Network Address Translation Network acts the same way but allows communication with the outer world.
+-> NAT engine replaces the source IP with its own IP address, so the outside world will have no idea of the 
+   presence of the VMs. This is known as network address translation.
+-> No system outside the host cannot access the VMs inside.
+-> Internet connectivity is possible.
+
+
+NAT vs NAT network:
+
+- In NAT the internal network is not present between the VMs of the host, but the individual VMs are able to 
+communicate with the outside world.
+
+3. Bridge Network:
+
+-> It is always present unlike host only or NAT.
+-> If we want to access the inside VMs or services from outside.
+-> The IP address assigned are of the original LAN series. (see image)
+
+
+PORT FORWARDING:
+
+- It allows us to map a port from the host to the guest.
+

@@ -11,7 +11,7 @@ cp -r
 - how sudo allows you to have root priviledges without being root user (use sudo prefix)
 
 -> downloading files using curl command 
-   - using -0 tag to save the file in the cd otherwise it will just print the file
+   - using -o tag to save the file in the cd otherwise it will just print the file
    - we can also use the wget command to download a file
    
 Syntax for both: 
