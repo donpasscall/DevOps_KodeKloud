@@ -1,0 +1,103 @@
+Day #5
+
+JAVA Building an application:
+
+- A java file is first compiled into bytecode using the javac command.
+- Then we can run the file using the Java <class_name> command.
+
+- But a tyical application may have many such files, here comes the play from JAR.
+
+- A JAR (Java ARchive) is a package file format typically used to aggregate many Java
+  class files and associated metadata and resources (text, images, etc.) into one file
+  to distribute application software or libraries on the Java platform. 
+
+- JAR files are similar to ZIP files, but they have a manifest file that describes the
+  contents of the JAR file and can hold additional metadata about the files inside the JAR.
+
+- Now to create an archive we use the jar command followed by the name of the archive and then 
+  pass in the list of files that are needed in the archive.
+  e.g - jar cf myArchive.jar class1.class class2.class class3.class
+
+- Now when the jar file is created it also generates a manifest file in the path META-INF/MANIFEST.MF
+  This file contains info about any file present in the archive and also any metadata regarding the application.
+
+- One such info is the entry point of the when someone tries to run this packaged version of the application.
+  So it needs to be specified as a main class property within the manifest file.
+
+- Now this package can be run on any system with the java command 
+
+                  e.g : java -jar myArchive.jar
+
+-> Now in a realistic environment many these build processes may be very complex as numerous developers are working 
+   on the same application and may be hard to keep up with everything individually.
+
+- Here come the application of java build tools like Maven, Gradle and ANT which helps us in automate the process.
+ 
+- These tools use configuration files where we can specify the steps we want the build tool to automate.
+
+E.g : lets consider ant
+
+      - just typing the command ant is enough to do all the steps for running a jar file. 
+      - if we just want to compile (or doc or anything) use it like this ant compile jar.
+      - we need to be in directory where the jar file is.
+
+
+
+NodeJS :
+
+- It allows you to run JavaScript on the server side, which can be used to build server-side
+  applications with JavaScript.
+
+- It is an open-source, cross-platform runtime environment that executes JavaScript code outside a web browser. 
+
+- The Node.js package ecosystem, npm, is the largest ecosystem of open-source libraries in the world.
+
+- The characteristic that separates NodeJS from others is its ability to handle large number of concurrent connections
+  by implementing a non-blocking IO model.
+
+- Install NodeJs in CentOS using these commands :
+
+   curl -sL https://rpm.nodesource.com/setup_13.x | sudo bash -
+   sudo yum install -y nodejs
+
+
+NPM :
+
+- Like any porgramming language, NodeJS supports a large number of packages and libraries.
+- These could be packages for working with files, hosting web servers, interacting with databases,	implementing 
+  security etc.
+- When we install NodeJS npm is also simulataneously installed alongside.
+- We can search using for a package using npm search <package_name>.
+- And install using npm install <package_name>.
+- When a package is installed it installed in the node_modules/<package_name> directory.
+- And all the files like readme, license is created there, and the main code is present in the lib directory.
+- There's also a file named package.json and it contains the metadata for the package, such as its name, version
+  author etc.
+- We can install the libraries in two ways or purposes
+  i) one for the application we building 
+  ii) other for the whole system
+- When we install using npm command without any options it assumes that you want to install the package in the cd.4
+- using the -g tag installs the package globally.
+
+
+MODULES :
+
+- In Node.js, a module is a piece of code that can be reused in other parts of your application. There are two types 
+  of modules in Node.js: built-in modules and external modules.
+- Built-in modules: These are the modules that are compiled into the Node.js binary. Examples include the fs (file system) 
+  module, the http module, and the path module.
+- External modules: These are modules that are created by developers and are saved in separate files. They can be installed 
+  using the npm package manager and imported into a Node.js script using the require function.
+  (see image).
+- So an application or a package has a set of dependencies and scripts associated with it.These are recorded in the 
+  package.json file.
+
+
+
+
+
+
+
+
+
+ 

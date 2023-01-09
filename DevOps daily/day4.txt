@@ -1,0 +1,43 @@
+Day#4
+
+DNS:
+
+- We can change name of a system on a network by modifying the files in /etc/hosts directory.
+- Whatever name we put in the hostfile for a system is the absolute truth for the other systems in the network.
+- They do not check whether the name is correct or not.
+- We can have many names we want and for as many servers as we want in the etc/hosts file.
+- The Domain Name System is a hierarchical and distributed naming system for computers, services, and other resources 
+   in the Internet or other Internet Protocol networks.
+- DNS is basically a replacement to the etc/hosts file as we it is very tedious and non-optimal as for every system
+  in the network we need to modify the etc/hosts file to specify the names.
+- In DNS a single entity in the network holds all the recipient names and ip addresses.
+- Every host has a DNS resolution configuration file at etc/resolv.conf. You add an entry into it specifying 
+  the address of the DNS server.
+
+             name_server        <ip_address>
+
+- Priority is etc/hosts and then the DNS server. So if there are entries in both the places, etc/hosts one is 
+  chosen.
+- But that order can also be changed in the etc/nsswitch.conf
+
+-> CONCEPT OF DOMAIN NAMES :
+   - Lets take an example:
+
+       www, maps, apps - is the sub-domain                   www.google.com, maps.google.com
+       google - is the domain name provided to google
+       .com - Top level domain name
+        .   - is called the root
+
+  - Let say we want to visit drive.google.com from our organization, our request first hits the organization's 
+    DNS server, as it doesn't know who or what drive or google is, so it forwards our request to the internet
+    where the ip address of the serer serving drive.google.com may be resolved with the help of multiple DNS 
+    servers.
+
+  - LOOk at the search domain image.
+
+
+NSLOOKUP:	
+
+- This command is used to query a hostname from the DNS server.
+- But this doesn't consider the hostfile name in etc/hosts file.
+  E.g : nslookup www.google.com
