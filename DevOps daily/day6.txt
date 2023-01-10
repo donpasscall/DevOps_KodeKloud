@@ -1,0 +1,20 @@
+DAY#6
+
+PIP (Python package manager) :
+
+- There could be two separate versions of python in our system.
+- Similarly there are two PIP versions are there as well. pip2 and pip3.
+- pip is a package management system for Python that is used to install 
+  and manage software packages written in Python. 
+  
+  e.g pip install <package_name>
+      pip uninstall <package_name>
+
+- pip show <package_name> : It displays the location of the particular 
+  package.
+
+
+
+SOURCE CONTROL MANAGEMENT :
+
+- 

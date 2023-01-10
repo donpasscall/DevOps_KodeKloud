@@ -1,0 +1,51 @@
+Day#7
+
+APACHE WEV SERVER :
+
+- httpd (Hypertext Transfer Protocol Daemon) is a software program that runs in the background
+ of a server and listens for incoming requests from clients on the internet. It is the most
+ widely-used web server software, and is the main component of the Apache HTTP Server, which is 
+ a free and open-source web server.
+
+- to install httpd service in our host system just use yum install httpd
+
+- Then we can either start or enable to get going.
+
+- Every server has a configuration file where we can configure the different parameters that govern how the 
+  server operates such as what port it listens on etc,
+
+- For the APACHE web server it is stored in the /etc/httpd/conf/httpd.conf
+
+- Now to access the page hosted by the http server go to port 80 on local host.
+  https://localhost:80
+
+- The documentroot defines the location where the static content is stored.
+
+- So moving the static files into this directory, you will see the custom directory. 
+
+- As we know a single apache server can hold multiple websites, to do that the files and configuration of
+  each website is configured as virtual hosts within the apache configuration file.
+  Thus a virtual host is a division of different websites in a apache webserver. 
+
+- This information can be be mentioned as shown in image (virtualhost).
+
+- Also another important thing is to restart the httpd service after making a change in the config file.
+
+- To make the configuration file small, new configuration can be created (as shown in multipleconfig) and we just need
+  to use the include statement in the original configuration file.
+
+
+APACHE TOMCAT :
+
+- It provides a web server environment where we can host Java-based web applications.
+
+- Apache tomcat server runs on the port 8080.
+
+- Now to deploy a web application on a tomcat server we need to package our code in a WAR package.
+
+- Once the code is packaged move the WAR file into the webapps directory of the server (check tomcatweb)
+
+- Now if the tomcat server is running it automatically detects that an application has ben placed in the webapps 
+  directory and the server will extract the war file into a directory in its name. 
+
+
