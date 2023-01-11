@@ -1,0 +1,21 @@
+Day #9
+
+
+YAML:
+
+- YAML is a human-readable data serialization format. It is often used for configuration files, 
+  and can be used in a wide variety of programming languages. YAML is designed to be easy for humans 
+  to read and write, and easy for machines to parse and generate.
+- The key and value is separated by a : (also a space after colon).
+- Array/lists and Dictonary/map is shown in (yamlEG)
+- The amount of indentation should be same for all the key value pair in a map/dictonary.
+- Map/dictonary is not ordered but list/array are ordered list. (check yamlOR)
+
+
+
+JSON PATH: 
+
+- JSON path is a query language that can help you parse data represented in a JSON or YAML format. 
+  (check jsonbrief for an idea) also (check jsonroot)
+- JSON path lists is also shown here.
+- Check an example shown in jsoneg1.

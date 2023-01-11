@@ -1,0 +1,96 @@
+Day#8 
+
+
+DATABASES:
+
+
+- SQL databases use a structured query language for defining and manipulating the data in thethe  database.
+  These databases are based on the relational model, which organizes data into tables with rows and columns.
+  Each table has a specific schema that defines the structure of the data it contains, and relationships
+  between tables are established using foreign key constraints.
+
+- NoSQL databases, on the other hand, do not use a fixed schema and do not rely on the relational model. 
+  Instead, they employ a variety of data models, such as key-value, document, columnar, and graph. These
+  databases are designed to handle large amounts of unstructured and semi-structured data, and they can scale
+  horizontally across multiple machines.
+
+
+
+MYSQL : 
+
+- Now to first use my SQL in a linux based system, we need to download the rpm package using the wget command.
+- Then install the rpm package using rpm command. 
+- Also install the MySQL server using the yum install mysql-server command. (refer to mysqlinstall)
+- And start the service using systemctl command.
+- The database log is saved in /var/log/mysqld.log.
+- It listens on port 3306 by default.
+
+- To connect to the database use the mysql client utility but we need a password (this is available in the log file)
+  (refer to mysqlconnect)
+- Now once inside the mysql prompt, the first step is to change the default password as no other options are allowed
+  before that. 	
+
+- creating a user in mysql : CREATE USER 'mynewuser'@'localhost' IDENTIFIED BY 'mypassword';
+
+
+
+
+MONGODB:
+
+- Its noSQL database and stores data in a json like format. This is known as a document, and multiple docuements together 
+  form a collection. Mutliple collection together form a database. And we can many such databases in a single MongoDB
+  server.
+- Same as mysql we need to download mongodb server on our system and then enable it as a service. 
+- The logs are stored in /var/log/mongodb/mongod.log
+- The conf file of mongoDB is present in /etc/mongod.conf.
+- Just typing mongo command we can connect to the database.
+- To display a list of databases use 'show dbs' command.
+- To create a new database or switch to a database, USE command is used.
+- To create a new collection use - db.CreateCollection("<collection_name>")
+- To show existing collection in the database use 'show collections' command.
+
+
+
+
+
+SECURITY - 
+
+- A TLS certificate is used to guarantee trust between two parties during a transaction.
+- Example, When a user tries to access a web server TLS certificates ensure that the communication between the 
+  user and the server is encrypted and the server is who it says it is. 
+- Symmetric encryption, also known as secret key encryption, is a method of encrypting data where the same key is
+  used to encrypt and decrypt the data. The key is kept secret and is shared between the sender and the receiver
+  of the data. The sender uses the key to encrypt the data, and the receiver uses the same key to decrypt the data.
+- This is when assymmetric encryption comes to play, instead of using a single key to encrypt and decrypt data it 
+  uses a pair of keys, a private and a public key. 
+- We can generate key pairs using the command ssh-keygen. 
+- A certificate is a type of digital document that binds a public key to an identity. Certificates are issued by
+  a certification authority (CA) and they contain information about the identity of the owner of the certificate
+ (such as their name and address), the public key, and other information that is used to verify the identity of 
+  the certificate's owner. The key point is that the certicate must be signed by the issuer themselves and cannot
+  be faked. And our web browser checks this sign to verify the security.
+- Now in our own webserver if we want a secure certificate sign, Cerificate authority or CA comes into.
+- They are organizations that can sign and validate your certificates for you. Some of the popular ones are Symantec,
+  Digicert, Comodo.
+- The way it works is as follows, you generate a certificate signing request or CSR using the key generated earlier
+  and the domain name of your website. 
+
+  i.e openssl req -new -key my-bank.key -out my-bank.csr
+
+- The certificate authorities verify the details and once it checks out they  sign the certificate and sends it back
+  to you. 
+- So when scammers/hackers try to create fake websites, their authorization fails as the CA makes sure of it.
+
+- The two key pairs generated are a private key and public key. We must encrypt the data using the public key and
+  decrypt using the private, and shouldn't do vice versa.
+
+- Some naming conventions : certificates with public key are named .crt or .pem extension. 
+                            certificates with private key are named .key or -key.pem
+
+
+
+
+
+
+
+ 
