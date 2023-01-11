@@ -13,8 +13,10 @@ PIP (Python package manager) :
 - pip show <package_name> : It displays the location of the particular 
   package.
 
+- requirements.txt is a file that lists the dependencies for a Python project, 
+  as well as the versions of each package required.
 
 
 SOURCE CONTROL MANAGEMENT :
 
-- 
+- Discussion in own git and github course.
